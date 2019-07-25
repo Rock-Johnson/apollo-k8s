@@ -15,9 +15,9 @@ RUN \
     mkdir -p /apollo-admin-server
 
 ADD . /apollo-admin-server/
-RUN curl -o https://github.com/ctripcorp/apollo/releases/download/v1.4.0/apollo-adminservice-1.4.0-github.zip && \
+RUN wget -O apollo-adminservice-1.4.0-github.zip  https://github.com/ctripcorp/apollo/releases/download/v1.4.0/apollo-adminservice-1.4.0-github.zip && \
     mv apollo-adminservice-1.4.0-github.zip /apollo-admin-server/apollo-adminservice.jar
-    
+
 ENV APOLLO_ADMIN_SERVICE_NAME="service-apollo-admin-server.sre"
 
 EXPOSE 8090
