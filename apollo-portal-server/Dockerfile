@@ -19,7 +19,7 @@ ADD . /apollo-portal-server/
 
 RUN wget -O apollo-portal-${VERSION}-github.zip  $URL  \
     && unzip -n apollo-portal-${VERSION}-github.zip -d /apollo-portal-server \
-    && mv /apollo-portal-server/apollo-configservice-${VERSION}.jar /apollo-portal-server/apollo-portal.jar \
+    && mv /apollo-portal-server/apollo-portal-${VERSION}.jar /apollo-portal-server/apollo-portal.jar \
     && rm -rf apollo-portal-${VERSION}-github.zip \
     && rm -rf /apollo-portal-server/apollo-portal-${VERSION}-sources.jar
 
