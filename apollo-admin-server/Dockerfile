@@ -4,7 +4,7 @@
 # docker build -t apollo-admin-server:v1.0.0 .
 
 FROM openjdk:8-jre-alpine3.8
-
+ENV VERSION 1.4.0
 RUN \
     echo "http://mirrors.aliyun.com/alpine/v3.8/main" > /etc/apk/repositories && \
     echo "http://mirrors.aliyun.com/alpine/v3.8/community" >> /etc/apk/repositories && \
@@ -15,8 +15,10 @@ RUN \
     mkdir -p /apollo-admin-server
 
 ADD . /apollo-admin-server/
-RUN wget -O apollo-adminservice-1.4.0-github.zip  https://github.com/ctripcorp/apollo/releases/download/v1.4.0/apollo-adminservice-1.4.0-github.zip && \
-    mv apollo-adminservice-1.4.0-github.zip /apollo-admin-server/apollo-adminservice.jar
+RUN wget -O apollo-adminservice-${VERSION}-github.zip  https://github.com/ctripcorp/apollo/releases/download/${VERSION}/apollo-adminservice-${VERSION}-github.zip  \
+    && unzip apollo-adminservice-${VERSION}-github.zip -d /apollo-admin-server \
+    && mv /apollo-admin-server/apollo-adminservice-${VERSION}.jar /apollo-admin-server/apollo-adminservice.jar \
+    && rm -rf /apollo-adminservice/apollo-adminservice-${VERSION}-github.zip \
 
 ENV APOLLO_ADMIN_SERVICE_NAME="service-apollo-admin-server.sre"
 
