@@ -19,7 +19,8 @@ ADD . /apollo-admin-server/
 RUN wget -O apollo-adminservice-${VERSION}-github.zip  $URL  \
     && unzip -n apollo-adminservice-${VERSION}-github.zip -d /apollo-admin-server \
     && mv /apollo-admin-server/apollo-adminservice-${VERSION}.jar /apollo-admin-server/apollo-adminservice.jar \
-    && rm -rf /apollo-adminservice/apollo-adminservice-${VERSION}-github.zip \
+    && rm -rf apollo-adminservice-${VERSION}-github.zip \
+    && rm -rf /apollo-admin-server/apollo-adminservice-${VERSION}-sources.jar
 
 ENV APOLLO_ADMIN_SERVICE_NAME="service-apollo-admin-server.sre"
 
