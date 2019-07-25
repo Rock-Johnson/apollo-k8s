@@ -17,7 +17,7 @@ RUN \
 
 ADD . /apollo-admin-server/
 RUN wget -O apollo-adminservice-${VERSION}-github.zip  $URL  \
-    && unzip apollo-adminservice-${VERSION}-github.zip -d /apollo-admin-server \
+    && unzip -n apollo-adminservice-${VERSION}-github.zip -d /apollo-admin-server \
     && mv /apollo-admin-server/apollo-adminservice-${VERSION}.jar /apollo-admin-server/apollo-adminservice.jar \
     && rm -rf /apollo-adminservice/apollo-adminservice-${VERSION}-github.zip \
 
