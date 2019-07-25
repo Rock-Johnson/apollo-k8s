@@ -5,7 +5,7 @@
 
 FROM openjdk:8-jre-alpine3.8
 ENV VERSION 1.4.0
-ENV URL https://github.com/ctripcorp/apollo/releases/download/v1.4.0/apollo-portal-1.4.0-github.zip
+ENV URL https://github.com/ctripcorp/apollo/releases/download/v1.4.0/apollo-adminservice-1.4.0-github.zip
 RUN \
     echo "http://mirrors.aliyun.com/alpine/v3.8/main" > /etc/apk/repositories && \
     echo "http://mirrors.aliyun.com/alpine/v3.8/community" >> /etc/apk/repositories && \
