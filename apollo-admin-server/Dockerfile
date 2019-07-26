@@ -22,6 +22,8 @@ RUN wget -O apollo-adminservice-${VERSION}-github.zip  $URL  \
     && rm -rf apollo-adminservice-${VERSION}-github.zip \
     && rm -rf /apollo-admin-server/apollo-adminservice-${VERSION}-sources.jar
 
+RUN chmod -R 755 /apollo-admin-server
+
 ENV APOLLO_ADMIN_SERVICE_NAME="service-apollo-admin-server.sre"
 
 EXPOSE 8090

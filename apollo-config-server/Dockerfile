@@ -24,7 +24,7 @@ RUN wget -O apollo-configservice-${VERSION}-github.zip  $URL  \
     && rm -rf /apollo-config-server/apollo-configservice-${VERSION}-sources.jar
     
 ENV APOLLO_CONFIG_SERVICE_NAME="service-apollo-config-server.sre"
-
+RUN chmod -R 755 /apollo-config-server
 EXPOSE 8080
 
 CMD ["/apollo-config-server/scripts/startup-kubernetes.sh"]
