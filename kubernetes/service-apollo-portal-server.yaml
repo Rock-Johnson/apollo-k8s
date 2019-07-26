@@ -24,10 +24,10 @@ metadata:
 subsets:
   - addresses:
       # 更改为你的 mysql addresses, 例如 1.1.1.1
-      - ip: your-mysql-addresses
+      - ip: 192.168.99.123
     ports:
       - protocol: TCP
-        port: 3306
+        port: 31179
 
 ---
 # configmap for apollo-portal-server
@@ -40,9 +40,9 @@ data:
   application-github.properties: |
     spring.datasource.url = jdbc:mysql://service-mysql-for-portal-server.sre:3306/ApolloPortalDB?characterEncoding=utf8
     # mysql username
-    spring.datasource.username = FillInCorrectUser
+    spring.datasource.username = root
     # mysql password
-    spring.datasource.password = FillInCorrectPassword
+    spring.datasource.password = 1234
   apollo-env.properties: |
     dev.meta=http://service-apollo-config-server-dev.sre:8080
     fat.meta=http://service-apollo-config-server-test-alpha.sre:8080
@@ -132,7 +132,7 @@ spec:
           command: ['bash', '-c', "curl --connect-timeout 2 --max-time 5 --retry 60 --retry-delay 1 --retry-max-time 120 service-apollo-admin-server-prod.sre:8090"]    
       
       containers:
-        - image: apollo-portal-server:v1.0.0    # 更改为你的 docker registry 下的 image
+        - image: apollo-portal-server:v1.4.0    # 更改为你的 docker registry 下的 image
           securityContext:
             privileged: true
           imagePullPolicy: IfNotPresent

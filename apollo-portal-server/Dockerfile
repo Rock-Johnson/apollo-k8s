@@ -25,7 +25,7 @@ RUN wget -O apollo-portal-${VERSION}-github.zip  $URL  \
 
 
 ENV APOLLO_PORTAL_SERVICE_NAME="service-apollo-portal-server.sre"
-
+RUN chmod -R 755 /apollo-portal-server
 EXPOSE 8070
 
 CMD ["/apollo-portal-server/scripts/startup-kubernetes.sh"]
