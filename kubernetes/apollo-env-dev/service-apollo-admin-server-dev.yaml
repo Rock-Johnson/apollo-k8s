@@ -81,7 +81,7 @@ spec:
           command: ['bash', '-c', "curl --connect-timeout 2 --max-time 5 --retry 60 --retry-delay 1 --retry-max-time 120 service-apollo-config-server-dev.sre:8080"]
       
       containers:
-        - image: apollo-admin-server:v1.4.0
+        - image: registry.cn-beijing.aliyuncs.com/zhy_k8s/apollo-admin-server:v1.4.0
           securityContext:
             privileged: true
           imagePullPolicy: IfNotPresent

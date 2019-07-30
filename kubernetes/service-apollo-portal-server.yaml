@@ -132,7 +132,7 @@ spec:
         #   command: ['bash', '-c', "curl --connect-timeout 2 --max-time 5 --retry 60 --retry-delay 1 --retry-max-time 120 service-apollo-admin-server-prod.sre:8090"]    
       
       containers:
-        - image: apollo-portal-server:v1.4.0    # 更改为你的 docker registry 下的 image
+        - image: registry.cn-beijing.aliyuncs.com/zhy_k8s/apollo-portal-server:v1.4.0    # 更改为你的 docker registry 下的 image
           securityContext:
             privileged: true
           imagePullPolicy: IfNotPresent
