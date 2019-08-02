@@ -7,13 +7,12 @@ metadata:
   namespace: sre
   name: configmap-apollo-config-server-dev
 data:
-  homePageUrl : http://192.168.99.123:30002
+  homePageUrl : http://apollo.zking.com/config
   application-github.properties: |
     spring.datasource.url = jdbc:mysql://service-mysql-for-apollo-dev-env.sre:3306/DevApolloConfigDB?characterEncoding=utf8
     spring.datasource.username = root
     spring.datasource.password = 1234
     eureka.service.url = http://statefulset-apollo-config-server-dev-0.service-apollo-meta-server-dev:8080/eureka/,http://statefulset-apollo-config-server-dev-1.service-apollo-meta-server-dev:8080/eureka/,http://statefulset-apollo-config-server-dev-2.service-apollo-meta-server-dev:8080/eureka/
-    
 ---
 kind: Service
 apiVersion: v1
@@ -112,10 +111,11 @@ spec:
           env:
             - name: APOLLO_CONFIG_SERVICE_NAME
               value: "service-apollo-config-server-dev.sre"
-          envFrom:
-            - configMapRef:
-                name: configmap-apollo-config-server-dev
-                key: homePageUrl
+            - name: homePageUrl
+              valueFrom: 
+                configMapKeyRef:
+                  name: configmap-apollo-config-server-dev
+                  key: homePageUrl
           readinessProbe:
             tcpSocket:
               port: 8080
