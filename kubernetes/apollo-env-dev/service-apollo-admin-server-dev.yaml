@@ -76,7 +76,7 @@ spec:
                 path: application-github.properties
       
       initContainers:
-        - image: alpine-bash:3.8
+        - image: registry.cn-beijing.aliyuncs.com/zhy_k8s/alpine-bash:3.8
           name: check-service-apollo-config-server-dev
           command: ['bash', '-c', "curl --connect-timeout 2 --max-time 5 --retry 60 --retry-delay 1 --retry-max-time 120 service-apollo-config-server-dev.sre:8080"]
       

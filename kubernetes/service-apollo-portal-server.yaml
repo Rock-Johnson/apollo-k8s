@@ -118,16 +118,16 @@ spec:
       
       initContainers:
         # 确保 admin-service 正常提供服务
-        - image: alpine-bash:3.8
+        - image: registry.cn-beijing.aliyuncs.com/zhy_k8s/alpine-bash:3.8
           name: check-service-apollo-admin-server-dev
           command: ['bash', '-c', "curl --connect-timeout 2 --max-time 5 --retry 60 --retry-delay 1 --retry-max-time 120 service-apollo-admin-server-dev.sre:8090"]
-        # - image: alpine-bash:3.8
+        # - image: registry.cn-beijing.aliyuncs.com/zhy_k8s/alpine-bash:3.8
         #   name: check-service-apollo-admin-server-alpha
         #   command: ['bash', '-c', "curl --connect-timeout 2 --max-time 5 --retry 60 --retry-delay 1 --retry-max-time 120 service-apollo-admin-server-test-alpha.sre:8090"]
-        # - image: alpine-bash:3.8
+        # - image: registry.cn-beijing.aliyuncs.com/zhy_k8s/alpine-bash:3.8
         #   name: check-service-apollo-admin-server-beta
         #   command: ['bash', '-c', "curl --connect-timeout 2 --max-time 5 --retry 60 --retry-delay 1 --retry-max-time 120 service-apollo-admin-server-test-beta.sre:8090"]
-        # - image: alpine-bash:3.8
+        # - image: registry.cn-beijing.aliyuncs.com/zhy_k8s/alpine-bash:3.8
         #   name: check-service-apollo-admin-server-prod
         #   command: ['bash', '-c', "curl --connect-timeout 2 --max-time 5 --retry 60 --retry-delay 1 --retry-max-time 120 service-apollo-admin-server-prod.sre:8090"]    
       
